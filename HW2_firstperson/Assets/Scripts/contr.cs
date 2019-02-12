@@ -11,6 +11,8 @@ public class contr : MonoBehaviour
     public Transform player;
     private Rigidbody rb;
 
+    public GunController theGun;
+
     private Vector3 direction;
     private Vector3 walkingVelocity;
     private Vector3 fallingVelocity;
@@ -61,5 +63,14 @@ public class contr : MonoBehaviour
             fallingVelocity.y = Mathf.Sqrt(gravity * jumpHeight);
         }
         controller.Move(fallingVelocity * Time.deltaTime);
+
+        if(Input.GetButtonDown("Fire1"))
+        {
+            theGun.isFiring = true;
+        }
+        if(Input.GetButtonUp("Fire1"))
+        {
+            theGun.isFiring = false;
+        }
     }
 }
